@@ -1,0 +1,204 @@
+@use 'src/styles/icon';
+@use 'src/styles/variables';
+
+// 버튼 크기(너비)
+$buttonSizes: (
+  s: 145px,
+  m: 168px,
+  max: 100%,
+);
+
+@each $key, $size in $buttonSizes {
+  .size-#{$key} {
+    width: $size;
+  }
+}
+
+// 버튼 테마별 스타일 정의
+$buttonStylesThemes: (
+  default: (
+    padding: 8px 12px,
+    text-color: #004098,
+    font-weight: bold,
+    background-color: transparent,
+    border: none,
+    box-shadow: none,
+    hover-opacity: 0.8,
+    hover-background-color: #ecf3fc,
+    disabled-background-color: transparent,
+  ),
+  strong: (
+    padding: 8px 12px,
+    text-color: #fff,
+    font-weight: bold,
+    background-color: #004098,
+    border: none,
+    box-shadow: none,
+    hover-opacity: 0.9,
+    disabled-background-color: #e5e5e5,
+  ),
+  conversion: (
+    padding: 8px 12px,
+    text-color: #333,
+    font-weight: bold,
+    background-color: #fc0,
+    border: none,
+    box-shadow: none,
+    hover-opacity: 0.9,
+    disabled-background-color: #e5e5e5,
+  ),
+);
+
+// style mixin
+@mixin style($styles) {
+  padding: map-get($styles, padding);
+  color: map-get($styles, text-color);
+  font-weight: #{map-get($styles, font-weight)};
+  font-size: #{map-get($styles, font-size)};
+  background-color: map-get($styles, background-color);
+  border: map-get($styles, border);
+  box-shadow: #{map-get($styles, box-shadow)};
+
+  &:hover {
+    background-color: map-get($styles, hover-background-color);
+    opacity: map-get($styles, hover-opacity);
+  }
+}
+
+@mixin disabledStyle($styles) {
+  background-color: map-get($styles, disabled-background-color);
+
+  &:hover {
+    background-color: map-get($styles, disabled-background-color);
+  }
+}
+
+.button {
+  @each $property, $styles in $buttonStylesThemes {
+    &[data-theme='#{$property}'] {
+      @include style($styles);
+    }
+  }
+
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    @each $property, $styles in $buttonStylesThemes {
+      &[data-theme='#{$property}'] {
+        @include disabledStyle($styles);
+      }
+    }
+
+    color: #999;
+    box-shadow: none;
+
+    &:hover {
+      cursor: default;
+      opacity: 1;
+    }
+  }
+}
+
+a.button {
+  text-decoration: none;
+}
+
+// 버튼의 전방에 배치하는 아이콘
+// 필요한 경우 추가
+$prefixIcons: (login);
+
+// 버튼의 전방에 배치하는 한편, 색이 변하지 않는 아이콘
+// 필요한 경우 추가
+// $staticPrefixIcons: (pdf);
+
+.prefixIcon {
+  // 테마에 따라 아이콘 색상이 텍스트 색상과 일치하는 경우
+  @each $icon in $prefixIcons {
+    &[data-icon='#{$icon}'] {
+      @each $property, $styles in $buttonStylesThemes {
+        &[data-theme='#{$property}'] {
+          &[icon-position='left'] {
+            &::before {
+              background-color: map-get($styles, text-color);
+              // stylelint-disable-next-line
+              -webkit-mask: url('#{variables.$iconsPath}/#{$icon}.svg') no-repeat center;
+              mask: url('#{variables.$iconsPath}/#{$icon}.svg') no-repeat center;
+            }
+
+            &:disabled,
+            &[aria-disabled='true'] {
+              &::before {
+                background-color: #999;
+              }
+            }
+          }
+
+          &[icon-position='right'] {
+            &::after {
+              background-color: map-get($styles, text-color);
+              // stylelint-disable-next-line
+              -webkit-mask: url('#{variables.$iconsPath}/#{$icon}.svg') no-repeat center;
+              mask: url('#{variables.$iconsPath}/#{$icon}.svg') no-repeat center;
+            }
+
+            &:disabled,
+            &[aria-disabled='true'] {
+              &::after {
+                background-color: #999;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 테마나 disabled에도 불구하고 아이콘을 그대로 표시하는 경우
+  // @each $icon in $staticPrefixIcons {
+  //   &[data-icon='#{$icon}'] {
+  //     &::before {
+  //       background-image: url('#{variables.$iconsPath}/#{$icon}.svg');
+  //     }
+  //   }
+  // }
+
+  &[data-icon] {
+    &[icon-position='left'] {
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        vertical-align: -4px;
+        background: {
+          position: center;
+          repeat: no-repeat;
+        }
+      }
+    }
+
+    &[icon-position='right'] {
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-left: 8px;
+        vertical-align: -4px;
+        background: {
+          position: center;
+          repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
