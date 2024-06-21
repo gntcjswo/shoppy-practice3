@@ -1,3 +1,35 @@
-.gnb {
-  display: flex;
+.header {
+  .headerInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    .user {
+      display: flex;
+      align-items: center;
+
+      button {
+        margin-left: 0.625rem;
+      }
+    }
+
+    .gnb {
+      display: flex;
+      padding-right: 1.875rem;
+
+      li {
+        a {
+        }
+      }
+    }
+  }
 }

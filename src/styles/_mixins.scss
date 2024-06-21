@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@use 'variables';
+
 // sm: 575
 // md: 767
 // lg: 991
@@ -19,7 +21,7 @@
 
 // max-width: 575px
 @mixin sm-max {
-  @media (max-width: #{$breakpoint-sm}) {
+  @media (max-width: #{variables.$breakpoint-sm}) {
     @content;
   }
 }
@@ -33,42 +35,42 @@
 
 // max-width: 767px
 @mixin md-max {
-  @media (max-width: #{$breakpoint-md}) {
+  @media (max-width: #{variables.$breakpoint-md}) {
     @content;
   }
 }
 
 // min-width: 768px
 @mixin md-min {
-  @media (min-width: #{$breakpoint-md + 1px}) {
+  @media (min-width: #{variables.$breakpoint-md + 1px}) {
     @content;
   }
 }
 
 // max-width: 991px
 @mixin lg-max {
-  @media (max-width: #{$breakpoint-lg}) {
+  @media (max-width: #{variables.$breakpoint-lg}) {
     @content;
   }
 }
 
 // min-width: 992px
 @mixin lg-min {
-  @media (min-width: #{$breakpoint-lg + 1px}) {
+  @media (min-width: #{variables.$breakpoint-lg + 1px}) {
     @content;
   }
 }
 
 // max-width: 1199px
 @mixin xl-max {
-  @media (max-width: #{$breakpoint-xl}) {
+  @media (max-width: #{variables.$breakpoint-xl}) {
     @content;
   }
 }
 
 // min-width: 1200px
 @mixin xl-min {
-  @media (min-width: #{$breakpoint-xl + 1px}) {
+  @media (min-width: #{variables.$breakpoint-xl + 1px}) {
     @content;
   }
 }

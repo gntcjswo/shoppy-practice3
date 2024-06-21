@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-@use 'src/styles/variables';
+@use 'variables';
+@use 'mixins';
 
 /* reset */
 * {
@@ -238,10 +239,10 @@ button::-moz-focus-inner {
 
 html {
   font-size: 100%;
-  font-family: $font-family-base;
-  color: $font-color-base;
+  font-family: variables.$font-family-base;
+  color: variables.$font-color-base;
 
-  @include md-max {
+  @include mixins.md-max {
     font-size: 75%;
   }
 }
@@ -294,7 +295,7 @@ input[type='submit'] {
 
 select {
   padding: 0 25px 0 10px;
-  background-image: url('#{variables.commonPath}/ico_select_arrow.png');
+  background-image: url('#{variables.$commonPath}/icon_select_arrow.png');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 8px auto;
@@ -303,7 +304,7 @@ select {
   appearance: none;
 }
 select:focus {
-  border-color: $color-base;
+  border-color: variables.$color-base;
 }
 
 select::-ms-expand {
@@ -330,4 +331,10 @@ a:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.inner {
+  max-width: variables.$inner-max-width;
+  margin: 0 auto;
+  padding: 0 20px;
 }

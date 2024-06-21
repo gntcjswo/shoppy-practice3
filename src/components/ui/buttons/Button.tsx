@@ -6,7 +6,7 @@ import { ButtonBase, ButtonBaseProps, LinkButtonBaseProps, LinkButtonBase } from
 export const Themes = ['strong', 'conversion', 'default'] as const;
 export type Theme = (typeof Themes)[number];
 
-export const Icons = ['login'] as const;
+export const Icons = ['login', 'logout'] as const;
 export type Icon = (typeof Icons)[number];
 
 export const IconPosition = ['left', 'right'] as const;
