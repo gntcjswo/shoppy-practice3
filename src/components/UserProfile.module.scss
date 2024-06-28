@@ -1,0 +1,17 @@
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-right: 1.25rem;
+
+  .thumbs {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.5rem;
+  }
+
+  span {
+    font-size: 1rem;
+  }
+}

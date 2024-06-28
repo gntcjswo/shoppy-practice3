@@ -1,4 +1,8 @@
+@use 'src/styles/variables';
+
 .header {
+  padding: 0.5rem 0;
+
   .headerInner {
     display: flex;
     justify-content: space-between;
@@ -18,16 +22,38 @@
       align-items: center;
 
       button {
-        margin-left: 0.625rem;
       }
     }
 
     .gnb {
+      position: relative;
       display: flex;
+      margin-right: 1.875rem;
       padding-right: 1.875rem;
 
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 1px;
+        height: 1.25rem;
+        margin-top: -0.625rem;
+        background-color: #151515;
+      }
+
       li {
+        & + li {
+          margin-left: 1.875rem;
+        }
+
         a {
+          font-size: 1.25rem;
+          font-weight: 500;
+
+          &:hover {
+            color: variables.$color-base;
+          }
         }
       }
     }

@@ -7,11 +7,37 @@ import UserProfile from './UserProfile';
 import { login, logout, onUserStateChange } from 'api/firebase';
 import classNames from 'classnames';
 
+export type User = {
+  accessToken: string;
+  auth: object;
+  displayName: string;
+  email: string;
+  emailVerified: boolean;
+  isAnonymous: boolean;
+  metadata: object;
+  phoneNumber: any;
+  photoURL: string;
+  proactiveRefresh: object;
+  providerData: Array<any>;
+  providerId: string;
+  reloadListener: any;
+  reloadUserInfo: object;
+  photoUrl: string;
+  stsTokenManager: object;
+  expirationTime: number;
+  tenantId: any;
+  uid: string;
+  refreshToken: any;
+};
+
 export default function Navbar() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    onUserStateChange(setUser);
+    onUserStateChange((user: User) => {
+      console.log(user);
+      setUser(user);
+    });
   }, []);
 
   return (
@@ -22,16 +48,18 @@ export default function Navbar() {
         </h1>
         <nav>
           <div className={styles.user}>
-            <UserProfile />
             {!user && (
               <Button theme='strong' icon='login' size='max' onClick={login}>
                 Login
               </Button>
             )}
             {user && (
-              <Button theme='strong' icon='logout' size='max' onClick={logout}>
-                Logout
-              </Button>
+              <>
+                <UserProfile user={user} />
+                <Button theme='strong' icon='logout' size='max' onClick={logout}>
+                  Logout
+                </Button>
+              </>
             )}
           </div>
           <ul className={styles.gnb}>
