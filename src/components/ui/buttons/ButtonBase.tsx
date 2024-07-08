@@ -15,6 +15,7 @@ type BaseProps = {
    * 버튼 크기
    */
   size?: Size;
+  text: string;
 };
 
 export type ButtonBaseProps = Merge<BaseProps, ButtonProps>;
@@ -23,15 +24,23 @@ export type LinkButtonBaseProps = Merge<BaseProps, LinkProps>;
 /**
  * 버튼의 기본 구성 요소
  */
-export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({ onClick, type = 'button', size = 'max', className, disabled, ...props }, ref) => {
+export const ButtonBase = forwardRef<HTMLButtonElement, ButtonBaseProps>(({ onClick, type = 'button', size = 'max', className, disabled, text, ...props }, ref) => {
   const handleClick = useHandleClick(onClick, disabled);
-  return <button ref={ref} className={classNames(styles[`size-${size}`], className)} type={type} disabled={disabled} onClick={handleClick} {...props} />;
+  return (
+    <button ref={ref} className={classNames(styles[`size-${size}`], className)} type={type} disabled={disabled} onClick={handleClick} {...props}>
+      {text}
+    </button>
+  );
 });
 
 /**
  * 링크 버튼의 기본 구성 요소
  */
-export const LinkButtonBase = forwardRef<HTMLAnchorElement, LinkButtonBaseProps>(({ size = 'max', className, disabled, onClick, ...props }, ref) => {
+export const LinkButtonBase = forwardRef<HTMLAnchorElement, LinkButtonBaseProps>(({ size = 'max', className, disabled, onClick, text, ...props }, ref) => {
   const handleClick = useHandleClick(onClick, disabled);
-  return <a ref={ref} role='button' onClick={handleClick} className={classNames(styles[`size-${size}`], className)} aria-disabled={disabled} {...props} />;
+  return (
+    <a ref={ref} role='button' onClick={handleClick} className={classNames(styles[`size-${size}`], className)} aria-disabled={disabled} {...props}>
+      {text}
+    </a>
+  );
 });

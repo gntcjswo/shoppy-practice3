@@ -6,6 +6,7 @@ import styles from './Navbar.module.scss';
 import UserProfile from './UserProfile';
 import { login, logout, onUserStateChange } from 'api/firebase';
 import classNames from 'classnames';
+import { ButtonProps } from './ui/buttons/Button';
 
 export type User = {
   accessToken: string;
@@ -48,17 +49,11 @@ export default function Navbar() {
         </h1>
         <nav>
           <div className={styles.user}>
-            {!user && (
-              <Button theme='strong' icon='login' size='max' onClick={login}>
-                Login
-              </Button>
-            )}
+            {!user && <Button theme='strong' icon='login' size='max' onClick={login} text='Login' />}
             {user && (
               <>
                 <UserProfile user={user} />
-                <Button theme='strong' icon='logout' size='max' onClick={logout}>
-                  Logout
-                </Button>
+                <Button theme='strong' icon='logout' size='max' onClick={logout} text='Logout' />
               </>
             )}
           </div>

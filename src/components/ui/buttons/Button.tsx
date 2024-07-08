@@ -28,15 +28,15 @@ export type LinkButtonProps = LinkButtonBaseProps & {
 /**
  * Button Component.
  */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ className, theme = 'default', icon, iconPosition = `left`, ...props }, ref) => {
-  return <ButtonBase ref={ref} className={classNames(styles.button, styles.prefixIcon, className)} data-theme={theme} data-icon={icon} icon-position={iconPosition} {...props} />;
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ className, theme = 'default', icon, iconPosition = `left`, text, ...props }, ref) => {
+  return <ButtonBase ref={ref} className={classNames(styles.button, styles.prefixIcon, className)} data-theme={theme} data-icon={icon} icon-position={iconPosition} text={text} {...props} />;
 });
 Button.displayName = 'Button';
 
 /**
  * Link Button Component.
  */
-export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({ className, theme = 'default', icon, ...props }, ref) => {
-  return <LinkButtonBase ref={ref} className={classNames(styles.button, styles.prefixIcon, className)} data-theme={theme} data-icon={icon} {...props} />;
+export const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({ className, theme = 'default', icon, text, ...props }, ref) => {
+  return <LinkButtonBase ref={ref} className={classNames(styles.button, styles.prefixIcon, className)} data-theme={theme} data-icon={icon} text={text} {...props} />;
 });
 LinkButton.displayName = 'LinkButton';
