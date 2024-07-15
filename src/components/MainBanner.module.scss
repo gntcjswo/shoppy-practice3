@@ -1,0 +1,98 @@
+@use 'src/styles/variables';
+
+.mainBanner {
+  position: relative;
+}
+
+.item {
+  position: relative;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 37.5rem;
+  background: {
+    position: top center;
+    repeat: no-repeat;
+    color: #000;
+    size: cover;
+  }
+
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: rgba(0, 0, 0, 0.7);
+  // }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+  }
+
+  &:global {
+    &.item01 {
+      :local(.bg) {
+        background-position: center;
+        opacity: 0.7;
+      }
+    }
+    &.item02 {
+      :local(.bg) {
+        background-position: top center;
+      }
+    }
+    &.item03 {
+      background-color: #442621;
+
+      :local(.bg) {
+        background-position: center;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .inner {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 20px;
+    z-index: 1;
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      color: #fff;
+
+      small {
+        display: block;
+        font-size: 1.125rem;
+        font-weight: 700;
+      }
+    }
+
+    .link {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.5rem;
+
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        background-color: variables.$color-base;
+        color: #fff;
+
+        &:hover {
+          background-color: variables.$color-base-hover;
+        }
+      }
+    }
+  }
+}
