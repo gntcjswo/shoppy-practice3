@@ -1,0 +1,25 @@
+.technologyItem {
+  display: flex;
+}
+
+.simple {
+  text-align: center;
+
+  figure {
+    font-size: 0;
+
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 0.625rem;
+  }
+}
+
+.detail {
+  display: none;
+}
