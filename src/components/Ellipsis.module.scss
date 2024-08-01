@@ -1,0 +1,28 @@
+:global(.sampleClass) {
+  margin-top: 50px;
+
+  a {
+    position: absolute;
+    top: 0;
+    right: 10px;
+  }
+}
+
+.ellipsis {
+  position: relative;
+  padding-right: 60px;
+
+  span {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.inherit {
+  text-overflow: inherit;
+
+  a {
+    display: none;
+  }
+}
