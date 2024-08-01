@@ -14,7 +14,17 @@ export default function Technology() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    let tl = gsap.timeline();
+    let tl = gsap.timeline({
+      // defaults: {
+      //   immediateRender: false,
+      // },
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top center',
+        end: 'top topr',
+        markers: true,
+      },
+    });
     setTl(tl);
   });
 

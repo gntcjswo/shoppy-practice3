@@ -26,17 +26,16 @@ export default function TechnologyItem({ className, img, title, content, timelin
       console.log('render');
 
       timeline &&
-        timeline.from(
+        timeline.fromTo(
           el.current,
           {
             y: 100,
             alpha: 0,
+          },
+          {
+            y: 0,
+            alpha: 1,
             duration: 0.5,
-            scrollTrigger: {
-              trigger: container.current,
-              start: 'top center',
-              markers: true,
-            },
           },
           index && index * 0.1
         );
