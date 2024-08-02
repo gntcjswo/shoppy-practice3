@@ -7,16 +7,33 @@
 
   figure {
     font-size: 0;
+    background-color: red;
 
     img {
       width: auto;
       max-width: 100%;
+      opacity: 0;
     }
   }
 
-  p {
-    font-size: 1rem;
-    margin-top: 0.625rem;
+  .txtBox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    margin-top: 3.125rem;
+
+    p {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .detail {
+      font-size: 1rem;
+      margin-top: 1.875rem;
+    }
   }
 }
 

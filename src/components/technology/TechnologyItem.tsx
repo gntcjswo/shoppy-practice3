@@ -20,13 +20,12 @@ export interface techProps {
 
 export default function TechnologyItem({ className, img, title, content, timeline, index, container }: techProps) {
   const el = useRef<HTMLDivElement>(null);
+  let { tl, tlFixed, tlGray } = timeline;
 
   useGSAP(
     () => {
-      console.log('render');
-
-      timeline &&
-        timeline.fromTo(
+      tl &&
+        tl.fromTo(
           el.current,
           {
             y: 100,
@@ -36,11 +35,33 @@ export default function TechnologyItem({ className, img, title, content, timelin
             y: 0,
             alpha: 1,
             duration: 0.5,
+            // ease: 'power2.inOut',
           },
           index && index * 0.1
         );
     },
-    { dependencies: [timeline, index], scope: container && container.current }
+    { dependencies: [tl, index], scope: container && container.current }
+  );
+
+  useGSAP(
+    () => {
+      tlGray &&
+        tlGray.fromTo(
+          el.current,
+          {
+            filter: 'grayscale(0)',
+          },
+          {
+            filter: 'grayscale(1)',
+            duration: 0.5,
+            // ease: 'power2.in',
+            // yoyo: true,
+          },
+          '-=0.5'
+          // index && `-=${index} * 0.5`
+        );
+    },
+    { dependencies: [tlGray], scope: container && container.current }
   );
 
   return (
@@ -51,9 +72,11 @@ export default function TechnologyItem({ className, img, title, content, timelin
             <figure>
               <img src={`/img/${img}.png`} alt={title} />
             </figure>
-            <p>{title}</p>
+            <div className={styles.txtBox}>
+              <p>{title}</p>
+              {/* <div className={styles.detail}>{content}</div> */}
+            </div>
           </div>
-          {/* <div className={styles.detail}>{content}</div> */}
         </div>
       )}
     </>

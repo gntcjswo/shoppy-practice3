@@ -1,3 +1,8 @@
+@use '../../styles/variables';
+
 .technology {
   display: flex;
+  max-width: variables.$inner-max-width-lg;
+  margin: 8.75rem auto;
+  padding: 0 20px;
 }
