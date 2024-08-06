@@ -20,13 +20,15 @@ export interface techProps {
 
 export default function TechnologyItem({ className, img, title, content, timeline, index, container }: techProps) {
   const el = useRef<HTMLDivElement>(null);
-  let { tl, tlFixed, tlGray } = timeline;
+  const imgBox = useRef<HTMLDivElement>(null);
+  const txtBox = useRef<HTMLDivElement>(null);
+  let { tl, tlFixed, tlTxtBox, tlGray } = timeline;
 
   useGSAP(
     () => {
       tl &&
         tl.fromTo(
-          el.current,
+          imgBox.current,
           {
             y: 100,
             alpha: 0,
@@ -45,14 +47,58 @@ export default function TechnologyItem({ className, img, title, content, timelin
 
   useGSAP(
     () => {
-      tlGray &&
-        tlGray.fromTo(
-          el.current,
+      tlFixed &&
+        tlFixed.to(
+          imgBox.current,
+          // {
+          //   filter: 'grayscale(1)',
+          //   scale: 0.8,
+          // },
           {
             filter: 'grayscale(0)',
+            scale: 1,
+            duration: 0.5,
+            stagger: 2,
+          }
+          // '+=4'
+          // index && index * 4
+        );
+    },
+    { dependencies: [tlFixed, index], scope: container && container.current }
+  );
+
+  useGSAP(
+    () => {
+      tlTxtBox &&
+        tlTxtBox.fromTo(
+          txtBox.current,
+          {
+            autoAlpha: 0,
+          },
+          {
+            autoAlpha: 1,
+            duration: 0.5,
+            stagger: 2,
+          }
+          // '+=4'
+          // index && index * 4
+        );
+    },
+    { dependencies: [tlTxtBox, index], scope: container && container.current }
+  );
+
+  useGSAP(
+    () => {
+      tlGray &&
+        tlGray.fromTo(
+          imgBox.current,
+          {
+            filter: 'grayscale(0)',
+            scale: 1,
           },
           {
             filter: 'grayscale(1)',
+            scale: 0.8,
             duration: 0.5,
             // ease: 'power2.in',
             // yoyo: true,
@@ -69,12 +115,12 @@ export default function TechnologyItem({ className, img, title, content, timelin
       {container && (
         <div className={classNames(styles.technologyItem, className)} ref={el}>
           <div className={styles.simple}>
-            <figure>
+            <figure ref={imgBox}>
               <img src={`/img/${img}.png`} alt={title} />
             </figure>
-            <div className={styles.txtBox}>
+            <div className={styles.txtBox} ref={txtBox}>
               <p>{title}</p>
-              {/* <div className={styles.detail}>{content}</div> */}
+              <div className={styles.detail}>{content}</div>
             </div>
           </div>
         </div>

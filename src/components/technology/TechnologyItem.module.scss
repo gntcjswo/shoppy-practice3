@@ -1,5 +1,7 @@
+@use 'src/styles/mixins';
+
 .technologyItem {
-  display: flex;
+  flex: 1 1 12.5%;
 }
 
 .simple {
@@ -7,36 +9,45 @@
 
   figure {
     font-size: 0;
-    background-color: red;
+    padding: 1.04vw;
+    // background-color: red;
 
     img {
       width: auto;
       max-width: 100%;
-      opacity: 0;
+      // opacity: 0;
     }
   }
 
   .txtBox {
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 100vw;
     padding: 0 20px;
     text-align: center;
-    margin-top: 3.125rem;
+    margin-top: 6.25rem;
+    transform: translateX(-50%);
+    background-color: #fff;
 
     p {
-      font-size: 30px;
+      font-size: 3.125rem;
       font-weight: 500;
     }
 
     .detail {
-      font-size: 1rem;
+      font-size: 20px;
       margin-top: 1.875rem;
     }
   }
 }
 
-.detail {
-  display: none;
+@include mixins.md-max {
+  .technologyItem {
+    flex: 1 1 25%;
+  }
+
+  .txtBox {
+    top: 200%;
+  }
 }
