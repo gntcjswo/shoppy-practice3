@@ -48,19 +48,19 @@ export default function TechnologyItem({ className, img, title, content, timelin
   useGSAP(
     () => {
       tlFixed &&
-        tlFixed.to(
+        tlFixed.fromTo(
           imgBox.current,
-          // {
-          //   filter: 'grayscale(1)',
-          //   scale: 0.8,
-          // },
+          {
+            filter: 'grayscale(1)',
+            scale: 0.8,
+          },
           {
             filter: 'grayscale(0)',
             scale: 1,
-            duration: 0.5,
-            stagger: 2,
-          }
-          // '+=4'
+            duration: 1,
+            // stagger: 2,
+          },
+          '+=2'
           // index && index * 4
         );
     },
@@ -77,10 +77,10 @@ export default function TechnologyItem({ className, img, title, content, timelin
           },
           {
             autoAlpha: 1,
-            duration: 0.5,
-            stagger: 2,
-          }
-          // '+=4'
+            duration: 1,
+            // stagger: 2,
+          },
+          '+=2'
           // index && index * 4
         );
     },
