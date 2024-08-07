@@ -32,6 +32,9 @@ export default function Technology() {
     });
 
     let tlFixed = gsap.timeline({
+      // defaults: {
+      //   immediateRender: false,
+      // },
       scrollTrigger: {
         trigger: container.current,
         start: 'top 10%',

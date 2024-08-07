@@ -27,7 +27,7 @@ export default function TechnologyItem({ className, img, title, content, timelin
   useGSAP(
     () => {
       tl &&
-        tl.fromTo(
+        tl.set(imgBox.current, { filter: 'grayscale(0)', scale: 1 }, 0.1).fromTo(
           imgBox.current,
           {
             y: 100,
