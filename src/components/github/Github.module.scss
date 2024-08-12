@@ -7,6 +7,17 @@
   align-items: center;
   height: 100vh;
   margin-top: 25rem;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 1px;
+    border-top: 1px solid #ccc;
+  }
 
   .githubBg {
     position: absolute;
@@ -22,7 +33,6 @@
   .githubInner {
     position: relative;
     text-align: center;
-    padding-bottom: 8.75rem;
 
     .githubTxtbox {
       max-width: variables.$inner-max-width-lg;
@@ -36,14 +46,14 @@
     }
 
     .githubBtn {
-      position: absolute;
-      right: 0;
-      bottom: 0;
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: 6.875rem;
+      width: 25rem;
+      height: 5rem;
       padding: 0.9375rem;
       font-size: 2rem;
       font-weight: 500;
@@ -53,7 +63,7 @@
       box-shadow: 0.5rem 0.5rem 0.9375rem -0.125rem rgba(0, 0, 0, 0.4);
 
       &:hover {
-        background-color: variables.$color-base-hover;
+        opacity: 0.8 !important;
       }
     }
   }

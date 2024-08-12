@@ -15,54 +15,68 @@ export default function Github() {
   const btn = useRef<HTMLAnchorElement>(null);
   const [tl, setTl] = useState<gsap.core.Timeline>();
 
+  useGSAP(() => {
+    let tlGithub = gsap.timeline({
+      defaults: {
+        duration: 1,
+      },
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top 20%',
+        // end: 'top 80%',
+        toggleActions: 'restart play play reverse',
+        markers: true,
+        id: 'github',
+      },
+    });
+
+    setTl(tlGithub);
+  });
+
   useGSAP(
     () => {
-      let tl = gsap
-        .timeline({
-          defaults: {
-            duration: 1,
-          },
-          scrollTrigger: {
-            trigger: container.current,
-            start: 'top 20%',
-            // end: 'top 80%',
-            toggleActions: 'restart play play reverse',
-            markers: true,
-            id: 'github',
-          },
-        })
-        .to(bg.current, {
-          skewY: -10,
-          background: '#f4f4f4',
-          boxShadow: '17px 17px -10px rgba(0, 0, 0, 0.2)',
-        })
-        .from(
-          txt.current,
-          {
-            y: 50,
-            autoAlpha: 0,
-          },
-          '-=1'
-        )
-        .from(
-          btn.current,
-          {
-            position: 'fixed',
-            right: '1.25rem',
-            bottom: '1.25rem',
-            width: '3.75rem',
-            height: '3.75rem',
-            borderRadius: '1.875rem',
-            fontSize: '1.125rem',
-            background: '#ddd',
-            color: 'black',
-          },
-          '-=1'
-        );
-
-      setTl(tl);
+      tl &&
+        tl
+          .to(bg.current, {
+            skewY: -10,
+            background: '#f4f4f4',
+            boxShadow: '17px 17px -10px rgba(0, 0, 0, 0.2)',
+          })
+          .fromTo(
+            txt.current,
+            {
+              y: 50,
+              autoAlpha: 0,
+            },
+            {
+              y: 0,
+              autoAlpha: 1,
+            },
+            '-=1'
+          )
+          .fromTo(
+            btn.current,
+            {
+              position: 'fixed',
+              width: '3.75rem',
+              height: '3.75rem',
+              borderRadius: '1.875rem',
+              fontSize: '1rem',
+              background: '#ddd',
+              color: '#000',
+            },
+            {
+              width: '25rem',
+              height: '5rem',
+              borderRadius: '1.25rem',
+              fontSize: '2rem',
+              background: '#e51550',
+              color: '#fff',
+            },
+            '-=1'
+          );
     },
-    { dependencies: [tl], scope: container.current }
+    { dependencies: [tl] }
   );
 
   return (
