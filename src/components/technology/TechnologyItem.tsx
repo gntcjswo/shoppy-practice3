@@ -4,25 +4,28 @@ import classNames from 'classnames';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger, TextPlugin);
 
 export interface techProps {
   className: string;
   img: string;
   title: string;
   content: string;
+  bg: string;
   timeline: any;
   index?: number;
-  container?: any;
+  refItem?: any;
 }
 
-export default function TechnologyItem({ className, img, title, content, timeline, index, container }: techProps) {
+export default function TechnologyItem({ className, img, title, content, bg, timeline, index, refItem }: techProps) {
   const el = useRef<HTMLDivElement>(null);
   const imgBox = useRef<HTMLDivElement>(null);
-  const txtBox = useRef<HTMLDivElement>(null);
+  // const txtBox = useRef<HTMLDivElement>(null);
   let { tl, tlFixed, tlTxtBox, tlGray } = timeline;
+  let { container, txtBox, titleRef, contentRef } = refItem;
 
   useGSAP(
     () => {
@@ -69,20 +72,7 @@ export default function TechnologyItem({ className, img, title, content, timelin
 
   useGSAP(
     () => {
-      tlTxtBox &&
-        tlTxtBox.fromTo(
-          txtBox.current,
-          {
-            autoAlpha: 0,
-          },
-          {
-            autoAlpha: 1,
-            duration: 1,
-            // stagger: 2,
-          },
-          '+=2'
-          // index && index * 4
-        );
+      tlTxtBox && tlTxtBox.to(titleRef.current, { text: title }, '+=2').to(contentRef.current, { text: content }, '-=1').to(txtBox.current, { '--outlet-bg': bg }, '-=1');
     },
     { dependencies: [tlTxtBox, index], scope: container && container.current }
   );
@@ -118,10 +108,10 @@ export default function TechnologyItem({ className, img, title, content, timelin
             <figure ref={imgBox}>
               <img src={`/img/${img}.png`} alt={title} />
             </figure>
-            <div className={styles.txtBox} ref={txtBox}>
+            {/* <div className={styles.txtBox} ref={txtBox}>
               <p>{title}</p>
               <div className={styles.detail}>{content}</div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

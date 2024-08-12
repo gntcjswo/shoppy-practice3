@@ -1,4 +1,5 @@
 @use '../../styles/variables';
+@use 'src/styles/mixins';
 
 .technology {
   position: relative;
@@ -7,4 +8,46 @@
   max-width: variables.$inner-max-width-lg;
   margin: 8.75rem auto;
   padding: 0 20px;
+}
+
+.txtBox {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 100vw;
+  padding: 30px 20px 100px;
+  text-align: center;
+  margin-top: 6.25rem;
+  transform: translateX(-50%);
+  // background-color: #fff;
+
+  --outlet-bg: #000;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3.125rem;
+    height: 2px;
+    margin-left: -1.5625rem;
+    background-color: var(--outlet-bg);
+  }
+
+  p {
+    font-size: 3.125rem;
+    font-weight: 500;
+    color: var(--outlet-bg);
+  }
+
+  .detail {
+    font-size: 20px;
+    margin-top: 1.875rem;
+  }
+}
+
+@include mixins.md-max {
+  .txtBox {
+    top: 200%;
+  }
 }

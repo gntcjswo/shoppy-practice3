@@ -20,27 +20,41 @@
     }
   }
 
-  .txtBox {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 100vw;
-    padding: 0 20px;
-    text-align: center;
-    margin-top: 6.25rem;
-    transform: translateX(-50%);
-    background-color: #fff;
+  // .txtBox {
+  //   position: absolute;
+  //   top: 100%;
+  //   left: 50%;
+  //   width: 100vw;
+  //   padding: 30px 20px 100px;
+  //   text-align: center;
+  //   margin-top: 6.25rem;
+  //   transform: translateX(-50%);
+  //   background-color: #fff;
 
-    p {
-      font-size: 3.125rem;
-      font-weight: 500;
-    }
+  //   --outlet-bg: #fff;
 
-    .detail {
-      font-size: 20px;
-      margin-top: 1.875rem;
-    }
-  }
+  //   &:before {
+  //     content: '';
+  //     position: absolute;
+  //     top: 0;
+  //     left: 50%;
+  //     width: 3.125rem;
+  //     height: 2px;
+  //     margin-left: -1.5625rem;
+  //     background-color: var(--outlet-bg);
+  //   }
+
+  //   p {
+  //     font-size: 3.125rem;
+  //     font-weight: 500;
+  //     color: var(--outlet-bg);
+  //   }
+
+  //   .detail {
+  //     font-size: 20px;
+  //     margin-top: 1.875rem;
+  //   }
+  // }
 }
 
 @include mixins.md-max {
@@ -48,7 +62,7 @@
     flex: 1 1 25%;
   }
 
-  .txtBox {
-    top: 200%;
-  }
+  // .txtBox {
+  //   top: 200%;
+  // }
 }

@@ -11,6 +11,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function Github() {
   const container = useRef<HTMLDivElement>(null);
   const bg = useRef<HTMLDivElement>(null);
+  const bgInner = useRef<HTMLDivElement>(null);
   const txt = useRef<HTMLDivElement>(null);
   const btn = useRef<HTMLAnchorElement>(null);
   const [tl, setTl] = useState<gsap.core.Timeline>();
@@ -19,13 +20,14 @@ export default function Github() {
     let tlGithub = gsap.timeline({
       defaults: {
         duration: 1,
+        ease: 'power2.inOut',
       },
       scrollTrigger: {
         trigger: container.current,
-        start: 'top 20%',
+        start: 'top 30%',
         // end: 'top 80%',
         toggleActions: 'restart play play reverse',
-        markers: true,
+        // markers: true,
         id: 'github',
       },
     });
@@ -39,9 +41,24 @@ export default function Github() {
         tl
           .to(bg.current, {
             skewY: -10,
-            background: '#f4f4f4',
+            // backgroundColor: '#f4f4f4',
             boxShadow: '17px 17px -10px rgba(0, 0, 0, 0.2)',
           })
+          .to(
+            bgInner.current,
+            {
+              skewY: 10,
+            },
+            '-=1'
+          )
+          .to(
+            bgInner.current,
+            {
+              opacity: 1,
+              ease: 'power2.out',
+            },
+            '-=1'
+          )
           .fromTo(
             txt.current,
             {
@@ -81,7 +98,9 @@ export default function Github() {
 
   return (
     <div className={styles.githubWrap} ref={container}>
-      <div className={styles.githubBg} ref={bg}></div>
+      <div className={styles.githubBg} ref={bg}>
+        <div className={styles.githubBgInner} ref={bgInner}></div>
+      </div>
       <div className={styles.githubInner}>
         <h3 className={styles.githubTxtbox} ref={txt}>
           소스코드는 GitHub에 올려두었습니다.
