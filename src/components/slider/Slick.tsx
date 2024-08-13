@@ -18,9 +18,11 @@ export default function Slick({ children, className, autoplay = true, speed = 30
       dots: true,
       infinite: loop,
       speed: speed,
+      fade: true,
       slideToShow: 1,
       autoplay: Boolean(autoplay),
       autoplaySpeed: typeof autoplay === 'boolean' ? 6000 : autoplay,
+      pauseOnHover: false,
     }),
     [autoplay, loop, speed]
   );

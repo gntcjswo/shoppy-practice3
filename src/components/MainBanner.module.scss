@@ -6,10 +6,11 @@
 
 .item {
   position: relative;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  height: 37.5rem;
+  // display: flex !important;
+  // justify-content: center;
+  // align-items: center;
+  // height: 56.25rem;
+  padding-top: 6.25rem;
   background: {
     position: top center;
     repeat: no-repeat;
@@ -33,36 +34,36 @@
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: 0.6;
   }
 
-  &:global {
-    &.item01 {
-      :local(.bg) {
-        background-position: center;
-        opacity: 0.7;
-      }
-    }
-    &.item02 {
-      :local(.bg) {
-        background-position: top center;
-      }
-    }
-    &.item03 {
-      background-color: #442621;
+  // &:global {
+  //   &.item01 {
+  //     :local(.bg) {
+  //       background-position: center;
+  //       opacity: 0.7;
+  //     }
+  //   }
+  //   &.item02 {
+  //     :local(.bg) {
+  //       background-position: top center;
+  //     }
+  //   }
+  //   &.item03 {
+  //     background-color: #442621;
 
-      :local(.bg) {
-        background-position: center;
-        opacity: 0.5;
-      }
-    }
-  }
+  //     :local(.bg) {
+  //       background-position: center;
+  //       opacity: 0.5;
+  //     }
+  //   }
+  // }
 
   .inner {
     position: relative;
     width: 100%;
     max-width: 1440px;
     padding: 0 20px;
+    margin: 0 auto;
     z-index: 1;
 
     h2 {
@@ -92,6 +93,24 @@
         &:hover {
           background-color: variables.$color-base-hover;
         }
+      }
+    }
+  }
+
+  .imgBox {
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 3.75rem;
+    perspective: 1600px;
+
+    figure.img {
+      transform-origin: bottom;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 800px;
       }
     }
   }
