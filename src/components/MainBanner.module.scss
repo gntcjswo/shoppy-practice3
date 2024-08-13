@@ -2,6 +2,36 @@
 
 .mainBanner {
   position: relative;
+
+  :global {
+    .slick-dots {
+      bottom: 20px;
+      font-size: 0;
+
+      li {
+        width: 8px;
+        height: 8px;
+        margin: 5px 10px;
+
+        button {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: #ddd;
+
+          &:before {
+            display: none;
+          }
+        }
+
+        &.slick-active {
+          button {
+            background-color: variables.$color-base;
+          }
+        }
+      }
+    }
+  }
 }
 
 .item {
