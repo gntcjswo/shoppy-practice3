@@ -12,7 +12,7 @@ interface slideProps {
   loop?: boolean;
 }
 
-export default function Slick({ children, className, autoplay = true, speed = 300, loop = true }: slideProps) {
+export default function Slick({ children, className, autoplay = true, speed = 800, loop = true }: slideProps) {
   const settings = useMemo<Settings>(
     () => ({
       dots: true,
