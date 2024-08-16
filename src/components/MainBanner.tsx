@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styles from './MainBanner.module.scss';
-import { Link } from 'react-router-dom';
 import Slick from './slider/Slick';
 import classNames from 'classnames';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { LinkButton } from './ui/buttons/Button';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -22,19 +22,19 @@ const items: ItemProps[] = [
     img: '/img/img_monitor_02.png',
     bg: 'radial-gradient(circle, rgba(250,3,4,1) 0%, rgba(75,21,22,1) 68%, rgba(24,23,28,1) 100%)',
     title: 'Youtube Clone',
-    link: '/products',
+    link: '/portfolio',
   },
   {
     img: '/img/img_monitor_03.png',
     bg: 'radial-gradient(circle, rgba(241,238,233,1) 0%, rgba(175,156,126,1) 63%, rgba(159,135,99,1) 100%)',
     title: 'Shopping Mall',
-    link: '/products',
+    link: '/portfolio',
   },
   {
     img: '/img/img_monitor_01.png',
     bg: 'radial-gradient(circle, rgba(170,88,34,1) 0%, rgba(89,42,12,1) 69%, rgba(64,28,5,1) 98%)',
     title: 'Todo List',
-    link: '/products',
+    link: '/portfolio',
   },
 ];
 
@@ -79,9 +79,7 @@ export default function MainBanner() {
               {item.title}
             </h2>
             <div className={styles.link}>
-              <Link to={item.link} target='_blank' rel='noopener noreferrer'>
-                자세히보기
-              </Link>
+              <LinkButton theme='strong' size='m' href={item.link} text='자세히보기' rel='noopener noreferrer' />
             </div>
           </div>
           <div className={styles.imgBox}>

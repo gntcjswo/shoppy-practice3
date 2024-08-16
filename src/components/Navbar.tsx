@@ -6,7 +6,6 @@ import styles from './Navbar.module.scss';
 import UserProfile from './UserProfile';
 import { login, logout, onUserStateChange } from 'api/firebase';
 import classNames from 'classnames';
-import { ButtonProps } from './ui/buttons/Button';
 
 export type User = {
   accessToken: string;
@@ -59,10 +58,7 @@ export default function Navbar() {
           </div>
           <ul className={styles.gnb}>
             <li key={uuidv4()}>
-              <Link to='/products'>Products</Link>
-            </li>
-            <li key={uuidv4()}>
-              <Link to='/cartss'>My Carts</Link>
+              <Link to='/portfolio'>Portfolio</Link>
             </li>
           </ul>
         </nav>
