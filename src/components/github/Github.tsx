@@ -4,7 +4,6 @@ import styles from './Github.module.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -105,9 +104,9 @@ export default function Github() {
         <h3 className={styles.githubTxtbox} ref={txt}>
           소스코드는 GitHub에 올려두었습니다.
         </h3>
-        <Link className={styles.githubBtn} to='http://naver.com' target='_blank' rel='noopener noreferrer' ref={btn}>
+        <a className={styles.githubBtn} href='http://naver.com' target='_blank' rel='noopener noreferrer' ref={btn}>
           GitHub
-        </Link>
+        </a>
       </div>
     </div>
   );

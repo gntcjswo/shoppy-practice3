@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './AllProducts.module.scss';
-import { LinkButton } from 'components/ui/buttons/Button';
+import { Link } from 'react-router-dom';
 
 export default function AllProducts() {
   return (
     <div>
       <div className={styles.head}>
         <h2>Title</h2>
-        <LinkButton theme='strong' size='s' href='/portfolio/new' text='포트폴리오 등록' />
+        <Link to='/portfolio/new'>포트폴리오 등록</Link>
       </div>
     </div>
   );
