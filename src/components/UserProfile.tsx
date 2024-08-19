@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UserProfile.module.scss';
-import { User } from './Navbar';
+import { User } from 'context/authContext';
 
 type userProps = {
   user: User;

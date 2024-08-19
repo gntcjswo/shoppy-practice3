@@ -1,0 +1,22 @@
+@use 'src/styles/variables';
+@use 'src/styles/mixins';
+
+.portfolioWrap {
+  max-width: variables.$inner-max-width;
+  margin: 0 auto;
+  padding: 0 20px 5rem;
+}
+.portfolioInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  gap: 40px 20px;
+
+  @include mixins.lg-max {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.sm-max {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
