@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './MainBanner.module.scss';
 import Slick from './slider/Slick';
 import classNames from 'classnames';
@@ -6,7 +6,8 @@ import classNames from 'classnames';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { LinkButton } from './ui/buttons/Button';
+import { Button } from './ui/buttons/Button';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -22,24 +23,25 @@ const items: ItemProps[] = [
     img: '/img/img_monitor_02.png',
     bg: 'radial-gradient(circle, rgba(250,3,4,1) 0%, rgba(75,21,22,1) 68%, rgba(24,23,28,1) 100%)',
     title: 'Youtube Clone',
-    link: '/portfolio',
+    link: '/portfolio/d27e4485-7549-4889-bdf5-7573e9944d10',
   },
   {
     img: '/img/img_monitor_03.png',
     bg: 'radial-gradient(circle, rgba(241,238,233,1) 0%, rgba(175,156,126,1) 63%, rgba(159,135,99,1) 100%)',
     title: 'Shopping Mall',
-    link: '/portfolio',
+    link: '/portfolio/4c35c8af-5280-45a2-a957-4a16f02f4ead',
   },
   {
     img: '/img/img_monitor_01.png',
     bg: 'radial-gradient(circle, rgba(170,88,34,1) 0%, rgba(89,42,12,1) 69%, rgba(64,28,5,1) 98%)',
     title: 'Todo List',
-    link: '/portfolio',
+    link: '/portfolio/11ad99a6-29f8-4b7f-a9ca-a3df7421b0c2',
   },
 ];
 
 export default function MainBanner() {
   const [tl, setTl] = useState<gsap.core.Timeline>();
+  const navigate = useNavigate();
 
   useGSAP(() => {
     let tl = gsap.timeline({
@@ -79,7 +81,7 @@ export default function MainBanner() {
               {item.title}
             </h2>
             <div className={styles.link}>
-              <LinkButton theme='strong' size='m' href={item.link} text='자세히보기' rel='noopener noreferrer' />
+              <Button theme='strong' size='m' onClick={() => navigate(`${item.link}`)} text='자세히보기' />
             </div>
           </div>
           <div className={styles.imgBox}>

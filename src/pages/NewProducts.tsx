@@ -5,7 +5,7 @@ import { Button } from 'components/ui/buttons/Button';
 import { useNavigate } from 'react-router-dom';
 import { addNewPortfolio } from 'api/firebase';
 
-type Portfolio = {
+export type Portfolio = {
   title: string;
   description: string;
   link: string;

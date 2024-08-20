@@ -67,7 +67,7 @@ export default function TechnologyItem({ className, img, title, content, bg, tim
           // index && index * 4
         );
     },
-    { dependencies: [tlFixed, index], scope: container && container.current }
+    { dependencies: [tl, tlFixed, index], scope: container && container.current }
   );
 
   useGSAP(

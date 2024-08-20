@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AllProducts.module.scss';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from 'context/authContext';
 import Products from 'components/Products';
 import { Button } from 'components/ui/buttons/Button';

@@ -62,7 +62,7 @@ export async function getPortfolio() {
 }
 
 export async function getPortfolioDetail(portfolioId) {
-	return get(ref(database, 'portfolio')).then(snapshot => {
+	return get(ref(database, `portfolio`)).then(snapshot => {
 		if (snapshot.exists()) {
 			return Object.values(snapshot.val()).filter(item => item.id === portfolioId);
 		}

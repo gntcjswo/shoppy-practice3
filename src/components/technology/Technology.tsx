@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Technology.module.scss';
 import TechnologyItem from './TechnologyItem';
 import { techProps } from './TechnologyItem';
@@ -45,7 +45,7 @@ export default function Technology() {
         pin: true,
         scrub: true,
         // toggleClass: 'active',
-        // markers: { startColor: 'orange', endColor: 'orange', fontSize: '20px' },
+        markers: { startColor: 'orange', endColor: 'orange', fontSize: '20px' },
         id: 'tlFixed',
         // onToggle: (self) => {
         //   console.log('onToggle', self.isActive);
@@ -86,7 +86,8 @@ export default function Technology() {
   const techList: techProps[] = [
     { className: 'techItem1', img: 'react', title: 'REACT', content: 'REACT로 만든 포트폴리오입니다.', bg: '#61dafb', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 0 },
     { className: 'techItem2', img: 'typescript', title: 'Typescript', content: 'Typescript를 적용했습니다.', bg: '#3178c6', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 1 },
-    { className: 'techItem3', img: 'jest', title: 'Jest', content: '테스트 코드를 작성했습니다.', bg: '#cc4615', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 2 },
+    // { className: 'techItem3', img: 'jest', title: 'Jest', content: '테스트 코드를 작성했습니다.', bg: '#cc4615', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 2 },
+    { className: 'techItem3', img: 'slick', title: 'Slick', content: 'REACT에서의 slick을 적용해 보았습니다.', bg: '#3498db', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 2 },
     { className: 'techItem4', img: 'gsap', title: 'GSAP', content: '인터렉션을 위해 REACT에서의 gsap를 적용해 보았습니다.', bg: '#93d400', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 3 },
     { className: 'techItem5', img: 'storybook', title: 'Storybook', content: 'Storybook을 통해 UI 컴포넌트를 문서화했습니다.', bg: '#ff4785', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 4 },
     {

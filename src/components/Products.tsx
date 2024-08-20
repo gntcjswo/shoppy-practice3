@@ -3,16 +3,12 @@ import { getPortfolio } from 'api/firebase';
 import React from 'react';
 import PortfolioCard from './PortfolioCard';
 import styles from './Products.module.scss';
+import useProducts from 'hooks/useProducts';
 
 export default function Products() {
   const {
-    isLoading,
-    error,
-    data: portfolios,
-  } = useQuery({
-    queryKey: ['portfolios'],
-    queryFn: getPortfolio,
-  });
+    portfoliosQuery: { isLoading, error, data: portfolios },
+  } = useProducts();
   return (
     <div className={styles.portfolioWrap}>
       {isLoading && <p>Loading...</p>}

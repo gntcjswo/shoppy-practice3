@@ -1,0 +1,93 @@
+@use 'src/styles/variables';
+@use 'src/styles/mixins';
+
+.detailWrap {
+  padding: 5rem 0 0;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .txtBox {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    padding: 2.5rem;
+    width: 600px;
+    max-width: 50%;
+    float: right;
+
+    h3 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    ul {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+
+      li {
+        position: relative;
+        font-size: 20px;
+        padding-left: 20px;
+        line-height: 1.4;
+
+        & + li {
+          margin-top: 5px;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: 0;
+          width: 8px;
+          height: 8px;
+          background-color: currentColor;
+        }
+      }
+    }
+
+    .btn {
+      margin-top: 2.5rem;
+
+      .adminBtn {
+        display: flex;
+        gap: 5px;
+        margin-top: 5px;
+
+        button {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .imgBox {
+    width: calc(100% - 600px);
+    min-width: 50%;
+    float: left;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @include mixins.md-max {
+    .txtBox,
+    .imgBox {
+      width: auto;
+      max-width: 100%;
+      float: none;
+    }
+
+    .txtBox {
+      position: static;
+    }
+  }
+}
