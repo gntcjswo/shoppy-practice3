@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './PortfolioCard.module.scss';
 import { Button } from './ui/buttons/Button';
+import { useNavigate } from 'react-router-dom';
 
 type portfolioProps = {
   portfolio: {
@@ -12,6 +13,8 @@ type portfolioProps = {
 };
 
 export default function PortfolioCard({ portfolio: { id, image, title, description } }: portfolioProps) {
+  const navigate = useNavigate();
+
   return (
     <li className={styles.portfolioBox}>
       <figure>
@@ -26,7 +29,7 @@ export default function PortfolioCard({ portfolio: { id, image, title, descripti
         </ul>
       </div>
       <div className={styles.btn}>
-        <Button theme='conversion' size='max' text='상세보기' />
+        <Button theme='conversion' size='max' text='상세보기' onClick={() => navigate(`/portfolio/${id}`)} />
       </div>
     </li>
   );

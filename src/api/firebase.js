@@ -60,3 +60,12 @@ export async function getPortfolio() {
 		return [];
 	})
 }
+
+export async function getPortfolioDetail(portfolioId) {
+	return get(ref(database, 'portfolio')).then(snapshot => {
+		if (snapshot.exists()) {
+			return Object.values(snapshot.val()).filter(item => item.id === portfolioId);
+		}
+		return [];
+	})
+}
