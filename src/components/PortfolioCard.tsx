@@ -23,9 +23,11 @@ export default function PortfolioCard({ portfolio: { id, image, title, descripti
       <div className={styles.txtbox}>
         <h3>{title}</h3>
         <ul>
-          {description.split('\n').map((line, index) => {
-            return <li key={id + index}>{line}</li>;
-          })}
+          {description && description.includes('\n') ? ( //
+            description.split('\n').map((line, index) => <li key={id + index}>{line}</li>)
+          ) : (
+            <li key={id}>{description}</li>
+          )}
         </ul>
       </div>
       <div className={styles.btn}>

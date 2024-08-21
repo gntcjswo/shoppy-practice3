@@ -3,7 +3,7 @@ import styles from './NewProducts.module.scss';
 import { uploadImage } from 'api/uploader';
 import { Button } from 'components/ui/buttons/Button';
 import { useNavigate } from 'react-router-dom';
-import { addNewPortfolio } from 'api/firebase';
+import useProducts from 'hooks/useProducts';
 
 export type Portfolio = {
   title: string;
@@ -23,6 +23,7 @@ export default function NewProducts() {
   const [error, setError] = useState<string | null>(null);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
 
+  const { addPortfolio } = useProducts();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,21 +57,27 @@ export default function NewProducts() {
       return;
     }
 
-    try {
-      const uploadPromises = Array.from(files).map((file) => uploadImage(file)); // 각 파일을 업로드
-      const uploadedUrls = await Promise.all(uploadPromises); // 모든 파일 업로드 완료 대기
+    const uploadPromises = Array.from(files).map((file) => uploadImage(file)); // 각 파일을 업로드
+    const uploadedUrls = await Promise.all(uploadPromises); // 모든 파일 업로드 완료 대기
 
-      // 업로드된 이미지 URL을 이용해 포트폴리오 데이터 저장
-      await addNewPortfolio(portfolio, uploadedUrls);
-
-      alert('포트폴리오가 등록되었습니다.');
-      navigate('/portfolio');
-    } catch (err) {
-      console.error(err);
-      setError('업로드 중 오류가 발생했습니다. 다시 시도해 주세요.');
-    } finally {
-      setIsUploading(false);
-    }
+    // 업로드된 이미지 URL을 이용해 포트폴리오 데이터 저장
+    addPortfolio.mutate(
+      { portfolio, urls: uploadedUrls },
+      {
+        onSuccess: () => {
+          alert('포트폴리오가 등록되었습니다.');
+          navigate('/portfolio');
+        },
+        onError: (err) => {
+          console.error(err);
+          setError('업로드 중 오류가 발생했습니다. 다시 시도해 주세요.');
+        },
+        onSettled: () => {
+          // 성공 여부와 관계없이 최종적으로 실행되는 코드
+          setIsUploading(false);
+        },
+      }
+    );
 
     // uploadImage(file)
     //   .then((url) => {

@@ -10,6 +10,7 @@ import AllProducts from './pages/AllProducts';
 import NewProducts from './pages/NewProducts';
 import ProductDetail from './pages/ProductDetail';
 import ProtectedRoute from 'pages/ProtectedRoute';
+import ModifyProducts from 'pages/ModifyProducts';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute requireAdmin>
             <NewProducts />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/portfolio/modify/:id',
+        element: (
+          <ProtectedRoute requireAdmin>
+            <ModifyProducts />
           </ProtectedRoute>
         ),
       },

@@ -1,0 +1,38 @@
+@use 'src/styles/variables';
+
+.portfolioForm {
+  width: 100%;
+  // max-width: variables.$inner-max-width;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 0;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .error {
+    color: red;
+    margin: 1.25rem 0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  form {
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 0.3125rem 0.625rem;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      height: 12.5rem;
+    }
+  }
+}

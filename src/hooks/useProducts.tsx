@@ -1,6 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getPortfolio as fetchPortfolios, addNewPortfolio } from '../api/firebase';
+import { getPortfolio as fetchPortfolios, addNewPortfolio, updateOldPortfolio, removeFromPortfolio } from '../api/firebase';
 import { Portfolio } from 'pages/NewProducts';
+
+type AddPortfolioTypes = {
+  portfolio: Portfolio;
+  urls: string[];
+};
+
+type UpdatePortfolioTypes = {
+  portfolio: Portfolio;
+  urls: string[];
+  id: string;
+};
 
 export default function useProducts() {
   const queryClient = useQueryClient();
@@ -11,15 +22,22 @@ export default function useProducts() {
     staleTime: 1000 * 60,
   });
 
-  type AddPortfolioTypes = {
-    portfolio: Portfolio;
-    url: string;
-  };
-
   const addPortfolio = useMutation({
-    mutationFn: ({ portfolio, url }: AddPortfolioTypes) => addNewPortfolio(portfolio, url),
+    mutationFn: ({ portfolio, urls }: AddPortfolioTypes) => addNewPortfolio(portfolio, urls),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['portfolios'] }),
   });
 
-  return { portfoliosQuery, addPortfolio };
+  const updatePortfolio = useMutation({
+    mutationFn: ({ portfolio, urls, id }: UpdatePortfolioTypes) => updateOldPortfolio(portfolio, urls, id),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['portfolios'] }),
+  });
+
+  const removePortfolio = useMutation({
+    mutationFn: (id: string) => removeFromPortfolio(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['portfolios'] });
+    },
+  });
+
+  return { portfoliosQuery, addPortfolio, updatePortfolio, removePortfolio };
 }

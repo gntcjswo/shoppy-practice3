@@ -52,6 +52,14 @@ export async function addNewPortfolio(portfolio, image) {
 	})
 }
 
+export async function updateOldPortfolio(portfolio, image, id) {
+	return set(ref(database, `portfolio/${id}`), {
+		...portfolio,
+		id,
+		image
+	})
+}
+
 export async function getPortfolio() {
 	return get(ref(database, 'portfolio')).then(snapshot => {
 		if (snapshot.exists()) {
@@ -68,4 +76,8 @@ export async function getPortfolioDetail(portfolioId) {
 		}
 		return [];
 	})
+}
+
+export async function removeFromPortfolio(portfolioId) {
+	return remove(ref(database, `portfolio/${portfolioId}`))
 }
