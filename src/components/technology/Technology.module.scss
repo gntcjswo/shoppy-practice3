@@ -1,12 +1,16 @@
 @use '../../styles/variables';
 @use 'src/styles/mixins';
 
+.technologyWrap {
+  padding: 8.75rem 0;
+}
+
 .technology {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   max-width: variables.$inner-max-width-lg;
-  margin: 8.75rem auto;
+  margin: 0 auto;
   padding: 0 20px;
 }
 

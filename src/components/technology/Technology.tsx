@@ -14,6 +14,7 @@ export default function Technology() {
   const [tlFixed, setTlFixed] = useState<gsap.core.Timeline>();
   const [tlTxtBox, setTlTxtBox] = useState<gsap.core.Timeline>();
   const [tlGray, setTlGray] = useState<gsap.core.Timeline>();
+  const containerWrap = useRef<HTMLDivElement>(null);
   const container = useRef<HTMLDivElement>(null);
   const txtBox = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
@@ -25,7 +26,7 @@ export default function Technology() {
       //   immediateRender: false,
       // },
       scrollTrigger: {
-        trigger: container.current,
+        trigger: containerWrap.current,
         start: 'top center',
         end: 'top top',
         toggleActions: 'restart play play reverse',
@@ -39,13 +40,13 @@ export default function Technology() {
       //   immediateRender: false,
       // },
       scrollTrigger: {
-        trigger: container.current,
-        start: 'top 10%',
+        trigger: containerWrap.current,
+        start: 'top 0%',
         end: '+=1200%',
         pin: true,
         scrub: true,
         // toggleClass: 'active',
-        markers: { startColor: 'orange', endColor: 'orange', fontSize: '20px' },
+        // markers: { startColor: 'orange', endColor: 'orange', fontSize: '20px' },
         id: 'tlFixed',
         // onToggle: (self) => {
         //   console.log('onToggle', self.isActive);
@@ -58,7 +59,7 @@ export default function Technology() {
         duration: 1,
       },
       scrollTrigger: {
-        trigger: container.current,
+        trigger: containerWrap.current,
         start: 'top 10%',
         end: '+=1200%',
         scrub: true,
@@ -68,7 +69,7 @@ export default function Technology() {
 
     let tlGray = gsap.timeline({
       scrollTrigger: {
-        trigger: container.current,
+        trigger: containerWrap.current,
         start: 'top 10%',
         end: '+=200',
         scrub: true,
@@ -112,24 +113,26 @@ export default function Technology() {
   ];
 
   return (
-    <div className={styles.technology} ref={container}>
-      {techList.map((item, index) => (
-        <TechnologyItem
-          className={item.className}
-          img={item.img}
-          title={item.title}
-          content={item.content}
-          bg={item.bg}
-          timeline={item.timeline}
-          index={item.index}
-          refItem={{ container, txtBox, titleRef, contentRef }}
-          key={index}
-        />
-      ))}
-      <div className={styles.txtBox} ref={txtBox}>
-        <p ref={titleRef}>Technology used</p>
-        <div className={styles.detail} ref={contentRef}>
-          이 사이트는 다음과 같이 작업했습니다.
+    <div className={styles.technologyWrap} ref={containerWrap}>
+      <div className={styles.technology} ref={container}>
+        {techList.map((item, index) => (
+          <TechnologyItem
+            className={item.className}
+            img={item.img}
+            title={item.title}
+            content={item.content}
+            bg={item.bg}
+            timeline={item.timeline}
+            index={item.index}
+            refItem={{ container, txtBox, titleRef, contentRef }}
+            key={index}
+          />
+        ))}
+        <div className={styles.txtBox} ref={txtBox}>
+          <p ref={titleRef}>Technology used</p>
+          <div className={styles.detail} ref={contentRef}>
+            이 사이트는 다음과 같이 작업했습니다.
+          </div>
         </div>
       </div>
     </div>

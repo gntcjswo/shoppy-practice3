@@ -11,7 +11,7 @@ export default function Products() {
   } = useProducts();
   return (
     <div className={styles.portfolioWrap}>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p className={styles.loading}>Loading...</p>}
       {error && <p>{(error as Error).message}</p>}
       <ul className={styles.portfolioInner}>{portfolios && portfolios.map((portfolio) => <PortfolioCard key={portfolio.id} portfolio={portfolio} />)}</ul>
     </div>

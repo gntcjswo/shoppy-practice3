@@ -67,7 +67,7 @@ export default function MainBanner() {
           rotateX: '90deg',
         });
     },
-    { dependencies: [tl] }
+    { dependencies: [tl, '.monitorImg'] }
   );
 
   return (
