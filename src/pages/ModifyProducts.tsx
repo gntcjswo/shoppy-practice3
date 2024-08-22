@@ -99,7 +99,7 @@ export default function ModifyProducts() {
 
   return (
     <div className={styles.portfolioForm}>
-      <h2>포트폴리오 등록</h2>
+      <h2>포트폴리오 수정</h2>
 
       {error && <p className={styles.error}>{error}</p>}
       {previewUrls.map((url, index) => (

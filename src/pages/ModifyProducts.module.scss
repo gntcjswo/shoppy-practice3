@@ -10,7 +10,10 @@
   h2 {
     font-size: 1.5rem;
     font-weight: 500;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.875rem;
+    padding-bottom: 0.9375rem;
+    text-align: center;
+    border-bottom: 3px solid variables.$color-base;
   }
 
   .error {
