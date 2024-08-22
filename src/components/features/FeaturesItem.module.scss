@@ -1,0 +1,25 @@
+.itemWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+@for $i from 1 through 9 {
+  $num: $i - 1;
+  $deg: $num * 40;
+  .itemWrap:nth-child(#{$i}) {
+    transform: rotateY(#{$deg}deg) translateZ(1209px);
+  }
+}
+
+.itemInner {
+  // background-color: #ccc;
+  // width: 800px;
+  // height: 600px;
+  // max-width: 100%;
+  // transform: translate3d(800px, 0, -230px) rotateY(30deg);
+  // opacity: 0;
+}

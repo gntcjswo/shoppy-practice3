@@ -1,3 +1,4 @@
+import Features from 'components/features/Features';
 import Github from 'components/github/Github';
 import MainBanner from 'components/MainBanner';
 import Technology from 'components/technology/Technology';
@@ -8,6 +9,7 @@ export default function Home() {
     <div>
       <MainBanner />
       <Technology />
+      <Features />
       <Github />
     </div>
   );

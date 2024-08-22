@@ -5,9 +5,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 98vh;
-  margin-top: 25rem;
+  // height: 98vh;
+  height: 100vh;
+  // margin-top: 25rem;
   overflow: hidden;
+  background-color: variables.$color-base;
 
   &:after {
     content: '';
@@ -16,7 +18,7 @@
     left: 50%;
     width: 50%;
     height: 1px;
-    border-top: 1px solid #ccc;
+    // border-top: 1px solid variables.$color-base-hover;
   }
 
   .githubBg {
@@ -25,11 +27,10 @@
     right: 0;
     bottom: 0;
     left: 0;
-    // background-color: #fff;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    // border-top: 1px solid variables.$color-base-hover;
+    // border-bottom: 1px solid variables.$color-base-hover;
     overflow: hidden;
-    // box-shadow: 17px 17px -10px rgba(0, 0, 0, 0.2);
 
     .githubBgInner {
       position: absolute;
@@ -51,10 +52,6 @@
       padding: 1rem;
       font-size: 2rem;
       border-bottom: 1px solid #333;
-      // background-color: #333;
-      // color: #fff;
-      // border-radius: 1.25rem;
-      // box-shadow: 0.5rem 0.5rem 0.9375rem -0.125rem rgba(0, 0, 0, 0.4);
     }
 
     .githubBtn {
@@ -72,6 +69,7 @@
       background-color: variables.$color-base;
       color: #fff;
       border-radius: 1.25rem;
+      border: 3px solid #fff;
       box-shadow: 0.5rem 0.5rem 0.9375rem -0.125rem rgba(0, 0, 0, 0.4);
 
       &:hover {

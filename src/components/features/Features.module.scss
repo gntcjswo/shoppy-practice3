@@ -1,0 +1,25 @@
+.featuresWrap {
+  position: relative;
+}
+
+.features {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene_set {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  perspective: 10000px;
+}
+
+.carousel_set {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
