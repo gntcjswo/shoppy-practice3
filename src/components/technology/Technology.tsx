@@ -42,7 +42,7 @@ export default function Technology() {
       scrollTrigger: {
         trigger: containerWrap.current,
         start: 'top 0%',
-        end: '+=1200%',
+        end: '+=600%',
         pin: true,
         scrub: true,
         // toggleClass: 'active',
@@ -61,7 +61,7 @@ export default function Technology() {
       scrollTrigger: {
         trigger: containerWrap.current,
         start: 'top 10%',
-        end: '+=1200%',
+        end: '+=600%',
         scrub: true,
         id: 'tlTxtBox',
       },
