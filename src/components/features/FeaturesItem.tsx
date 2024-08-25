@@ -11,7 +11,9 @@ export default function FeaturesItem({ img, text }: FeaturesItemProps) {
       <div className={`${styles.itemInner} ${img ? '' : styles.noImg}`}>
         <figure className={styles.imgBox}>{img && <img src={img} alt='Main Features preview' />}</figure>
         <div className={styles.txtBox}>
-          <p>{text}</p>
+          {text.map((txt, index) => (
+            <p key={`features${index}`}>{txt}</p>
+          ))}
         </div>
       </div>
     </div>
