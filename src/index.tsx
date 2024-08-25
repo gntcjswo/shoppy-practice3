@@ -11,6 +11,7 @@ import NewProducts from './pages/NewProducts';
 import ProductDetail from './pages/ProductDetail';
 import ProtectedRoute from 'pages/ProtectedRoute';
 import ModifyProducts from 'pages/ModifyProducts';
+import Intro from 'Intro';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFound />,
     children: [
-      { index: true, path: '/', element: <Home /> },
+      { index: true, path: '/', element: <Intro /> },
+      { path: '/home', element: <Home /> },
       { path: '/portfolio', element: <AllProducts /> },
       {
         path: '/portfolio/new',

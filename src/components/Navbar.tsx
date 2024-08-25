@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <div className={classNames('inner', styles.headerInner)}>
         <h1>
-          <Link to='/'>
+          <Link to='/home'>
             <img src='/img/logo.svg' alt='Home' />
           </Link>
         </h1>

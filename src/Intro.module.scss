@@ -1,0 +1,80 @@
+@use 'src/styles/mixins';
+
+.introWrap {
+  display: flex;
+  height: 100vh;
+
+  .inbox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background: #f9d700;
+
+    & + .inbox {
+      background: #1ae5e3;
+    }
+
+    .motion {
+      width: 100%;
+    }
+
+    .txt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transition: 0.4s opacity ease-in-out;
+
+      strong {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.375rem;
+        margin-top: 0.625rem;
+      }
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 0;
+      color: transparent;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    &:hover {
+      .txt {
+        opacity: 1;
+      }
+    }
+  }
+
+  @include mixins.md-max {
+    display: block;
+
+    .inbox {
+      width: 100%;
+      height: 50%;
+
+      .txt {
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+      }
+    }
+  }
+}
