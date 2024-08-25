@@ -38,9 +38,7 @@ export default function Intro() {
             </p>
           </div>
         </div>
-        <Link to='/home' target='_blank' rel='noopener noreferrer'>
-          사이트 바로가기
-        </Link>
+        <Link to='/home'>사이트 바로가기</Link>
       </div>
     </div>
   );
