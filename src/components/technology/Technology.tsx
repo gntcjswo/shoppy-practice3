@@ -90,7 +90,7 @@ export default function Technology() {
     // { className: 'techItem3', img: 'jest', title: 'Jest', content: '테스트 코드를 작성했습니다.', bg: '#cc4615', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 2 },
     { className: 'techItem3', img: 'slick', title: 'Slick', content: 'REACT에서의 slick을 적용해 보았습니다.', bg: '#3498db', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 2 },
     { className: 'techItem4', img: 'gsap', title: 'GSAP', content: '인터렉션을 위해 REACT에서의 gsap를 적용해 보았습니다.', bg: '#93d400', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 3 },
-    { className: 'techItem5', img: 'storybook', title: 'Storybook', content: 'Storybook을 통해 UI 컴포넌트를 문서화했습니다.', bg: '#ff4785', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 4 },
+    // { className: 'techItem5', img: 'storybook', title: 'Storybook', content: 'Storybook을 통해 UI 컴포넌트를 문서화했습니다.', bg: '#ff4785', timeline: { tl, tlFixed, tlTxtBox, tlGray }, index: 4 },
     {
       className: 'techItem6',
       img: 'firebase',

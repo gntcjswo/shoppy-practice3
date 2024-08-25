@@ -1,7 +1,8 @@
 @use 'src/styles/mixins';
 
 .technologyItem {
-  flex: 1 1 12.5%;
+  // flex: 1 1 12.5%;
+  flex: 0 1 14.2857%;
 }
 
 .simple {
@@ -59,7 +60,7 @@
 
 @include mixins.md-max {
   .technologyItem {
-    flex: 1 1 25%;
+    flex: 0 1 25%;
   }
 
   // .txtBox {
