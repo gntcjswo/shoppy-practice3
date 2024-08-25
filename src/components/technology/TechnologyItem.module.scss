@@ -9,13 +9,19 @@
   text-align: center;
 
   figure {
+    position: relative;
+    height: 0;
+    padding-bottom: 100%;
     font-size: 0;
-    padding: 1.04vw;
-    // background-color: red;
+    // padding: 1.04vw;
     filter: grayscale(0);
 
     img {
-      width: auto;
+      position: absolute;
+      top: 1.04vw;
+      left: 1.04vw;
+      width: calc(100% - 2.08vw);
+      // width: auto;
       max-width: 100%;
       // opacity: 0;
     }

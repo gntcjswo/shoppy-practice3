@@ -68,7 +68,7 @@ export default function Features() {
         tlFixed.fromTo(
           containerWrap.current,
           {
-            background: '#fff',
+            background: 'transparent',
           },
           {
             background: 'linear-gradient(180deg, #ab0101, #000)',
