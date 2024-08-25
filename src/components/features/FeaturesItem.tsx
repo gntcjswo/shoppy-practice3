@@ -3,17 +3,19 @@ import styles from './FeaturesItem.module.scss';
 import { useGSAP } from '@gsap/react';
 
 type FeaturesItemProps = {
-  img: string;
-  text: string;
-  refDiv: any;
+  img?: string;
+  text: any[];
 };
 
-export default function FeaturesItem({ img, text, refDiv }: FeaturesItemProps) {
-  const { tl, tlFixed, containerWrap, container, carousel } = refDiv;
-
+export default function FeaturesItem({ img, text }: FeaturesItemProps) {
   return (
     <div className={styles.itemWrap}>
-      <div className={styles.itemInner}>{text}</div>
+      <div className={`${styles.itemInner} ${img ? '' : styles.noImg}`}>
+        <figure className={styles.imgBox}>{img && <img src={img} alt='Main Features preview' />}</figure>
+        <div className={styles.txtBox}>
+          <p>{text}</p>
+        </div>
+      </div>
     </div>
   );
 }

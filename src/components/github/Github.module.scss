@@ -9,7 +9,7 @@
   height: 100vh;
   // margin-top: 25rem;
   overflow: hidden;
-  background-color: variables.$color-base;
+  background: #000;
 
   &:after {
     content: '';
@@ -27,7 +27,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #fff;
+    background: #000;
     // border-top: 1px solid variables.$color-base-hover;
     // border-bottom: 1px solid variables.$color-base-hover;
     overflow: hidden;
@@ -39,7 +39,7 @@
       bottom: 0;
       left: 0;
       opacity: 0;
-      background: url('~assets/img/main/bg_main_github.png') no-repeat center/cover;
+      background: #fff url('~assets/img/main/bg_main_github.png') no-repeat center/cover;
     }
   }
 

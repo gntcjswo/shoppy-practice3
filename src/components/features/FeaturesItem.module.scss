@@ -1,25 +1,91 @@
+@use 'src/styles/variables';
+@use 'src/styles/mixins';
+
 .itemWrap {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: #ccc;
+  // height: 100%;
+  // background-color: #ccc;
 }
 
 @for $i from 1 through 9 {
   $num: $i - 1;
   $deg: $num * 40;
   .itemWrap:nth-child(#{$i}) {
-    transform: rotateY(#{$deg}deg) translateZ(1209px);
+    // transform: translateY(-50%) rotateY(#{$deg}deg) translateZ(1209px);
+    transform: translateY(-50%) rotateY(#{$deg}deg) translateZ(62.96875vw);
   }
 }
 
 .itemInner {
+  position: relative;
   // background-color: #ccc;
   // width: 800px;
   // height: 600px;
   // max-width: 100%;
   // transform: translate3d(800px, 0, -230px) rotateY(30deg);
   // opacity: 0;
+
+  .imgBox {
+    position: relative;
+    height: 0;
+    padding-bottom: 51.5%;
+    overflow: hidden;
+    box-shadow: 0.3125rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .txtBox {
+    // margin-top: 15px;
+    margin-top: 0.78125vw;
+    // font-size: 20px;
+    font-size: 1.0416vw;
+    color: #fff;
+
+    p {
+      white-space: pre-line;
+    }
+
+    @include mixins.xl-max {
+      display: none;
+    }
+  }
+
+  &.noImg {
+    .imgBox {
+      box-shadow: none;
+    }
+
+    .txtBox {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 60px;
+      // font-size: 3.125vw;
+      font-weight: 700;
+      line-height: 1.2;
+      color: variables.$color-base;
+
+      @include mixins.md-max {
+        font-size: 2.75rem;
+      }
+    }
+  }
 }

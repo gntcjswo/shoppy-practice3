@@ -22,7 +22,7 @@ export default function Features() {
         end: '+=200%',
         scrub: 0.5,
         // toggleActions: 'restart play play reverse',
-        markers: true,
+        // markers: true,
         id: 'tl',
       },
     });
@@ -71,7 +71,7 @@ export default function Features() {
             background: '#fff',
           },
           {
-            background: '#e51550',
+            background: 'linear-gradient(180deg, #ab0101, #000)',
           }
         );
     },
@@ -83,11 +83,11 @@ export default function Features() {
       <div className={styles.features} ref={container}>
         <div className={styles.scene_set}>
           <div className={styles.carousel_set} ref={carousel}>
-            <FeaturesItem img='slick' text='텍스트' refDiv={{ tl, tlFixed, containerWrap, container, carousel }} />
-            <FeaturesItem img='slick' text='텍스트' refDiv={{ tl, tlFixed, containerWrap, container, carousel }} />
-            <FeaturesItem img='slick' text='텍스트' refDiv={{ tl, tlFixed, containerWrap, container, carousel }} />
-            <FeaturesItem img='slick' text='텍스트' refDiv={{ tl, tlFixed, containerWrap, container, carousel }} />
-            <FeaturesItem img='slick' text='텍스트' refDiv={{ tl, tlFixed, containerWrap, container, carousel }} />
+            <FeaturesItem text={['Main Features']} />
+            <FeaturesItem img='/img/img_main_features_01.jpg' text={['데이타베이스에 등록 한 포트폴리오 목록을 불러옵니다.', <br />, '관리자 권한이 있으면 포트폴리오 등록버튼이 활성화 됩니다.']} />
+            <FeaturesItem img='/img/img_main_features_02.jpg' text={['포트폴리오를 데이타베이스에 등록합니다.', <br />, '관리자 권한이 없으면 해당 페이지에 접근할 수 없습니다.']} />
+            <FeaturesItem img='/img/img_main_features_03.jpg' text={['포트폴리오의 상세내용을 불러옵니다.', <br />, '관리자 권한이 있으면 수정, 삭제 버튼이 활성화 됩니다.']} />
+            <FeaturesItem img='/img/img_main_features_04.jpg' text={['데이타베이스에서 읽어온 값을 입력폼에 불러옵니다.', <br />, '이미지를 수정하지 않으면 기존의 이미지가 그대로 유지됩니다.']} />
           </div>
         </div>
       </div>
