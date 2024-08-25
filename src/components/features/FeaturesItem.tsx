@@ -1,6 +1,4 @@
-import React, { useRef } from 'react';
 import styles from './FeaturesItem.module.scss';
-import { useGSAP } from '@gsap/react';
 
 type FeaturesItemProps = {
   img?: string;

@@ -1,6 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import { getPortfolio } from 'api/firebase';
-import React from 'react';
 import PortfolioCard from './PortfolioCard';
 import styles from './Products.module.scss';
 import useProducts from 'hooks/useProducts';

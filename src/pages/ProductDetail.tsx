@@ -11,11 +11,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 export default function ProductDetail() {
   const { user } = useAuthContext();
   const { id } = useParams();
-  const {
-    isLoading,
-    error,
-    data: portfolios,
-  } = useQuery({
+  const { isLoading, data: portfolios } = useQuery({
     queryKey: ['portfoliosDetail', id],
     queryFn: () => getPortfolioDetail(id),
   });
@@ -81,7 +77,7 @@ export default function ProductDetail() {
               </div>
               <div className={styles.imgBox}>
                 {portfolio.image.map((img: string, index: number) => (
-                  <img src={img} alt={`detail image ${index}`} key={`img-${portfolio.id}-${index}`} />
+                  <img src={img} alt={`detail ${index}`} key={`img-${portfolio.id}-${index}`} />
                 ))}
               </div>
             </div>
