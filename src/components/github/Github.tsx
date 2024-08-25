@@ -104,7 +104,7 @@ export default function Github() {
         <h3 className={styles.githubTxtbox} ref={txt}>
           소스코드는 GitHub에 올려두었습니다.
         </h3>
-        <a className={styles.githubBtn} href='http://naver.com' target='_blank' rel='noopener noreferrer' ref={btn}>
+        <a className={styles.githubBtn} href='https://github.com/gntcjswo/shoppy-practice3' target='_blank' rel='noopener noreferrer' ref={btn}>
           GitHub
         </a>
       </div>
