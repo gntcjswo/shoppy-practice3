@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { getPortfolioDetail } from 'api/firebase';
-import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './ProductDetail.module.scss';
 import { Button, LinkButton } from 'components/ui/buttons/Button';

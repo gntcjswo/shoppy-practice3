@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './Technology.module.scss';
 import TechnologyItem from './TechnologyItem';
 import { techProps } from './TechnologyItem';
