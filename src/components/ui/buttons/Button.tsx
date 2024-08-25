@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import styles from './Button.module.scss';
 import { ButtonBase, ButtonBaseProps, LinkButtonBaseProps, LinkButtonBase } from './ButtonBase';
 
@@ -10,13 +10,13 @@ export const Icons = ['login', 'logout'] as const;
 export type Icon = (typeof Icons)[number];
 
 export const IconPosition = ['left', 'right'] as const;
-export type IconPosition = (typeof IconPosition)[number];
+export type IconPositionType = (typeof IconPosition)[number];
 
 export type ButtonProps = ButtonBaseProps & {
   /** 버튼 컬러 테마 */
   theme?: Theme;
   icon?: Icon;
-  iconPosition?: IconPosition;
+  iconPosition?: IconPositionType;
 };
 
 export type LinkButtonProps = LinkButtonBaseProps & {

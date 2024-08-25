@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './MainBanner.module.scss';
 import Slick from './slider/Slick';
 import classNames from 'classnames';
