@@ -26,7 +26,7 @@ export default function Intro() {
       </div>
       <div className={styles.inbox}>
         <div className={styles.motion}>
-          <DotLottieReact src='/path/frontend.json' loop autoplay />
+          <DotLottieReact src='/path/frontend-ver2.json' loop autoplay />
         </div>
         <div className={styles.txt}>
           <div>
