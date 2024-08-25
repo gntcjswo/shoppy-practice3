@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Intro.module.scss';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { Link } from 'react-router-dom';
 
 export default function Intro() {
   return (
@@ -37,7 +38,7 @@ export default function Intro() {
             </p>
           </div>
         </div>
-        <a href='/home' target='_blank' rel='noopener noreferrer'>
+        <a href='/home' target='_blank' rel='noopener'>
           사이트 바로가기
         </a>
       </div>
