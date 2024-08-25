@@ -6,6 +6,7 @@ import styles from './ProductDetail.module.scss';
 import { Button, LinkButton } from 'components/ui/buttons/Button';
 import { useAuthContext } from 'context/authContext';
 import useProducts from 'hooks/useProducts';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function ProductDetail() {
   const { user } = useAuthContext();
@@ -40,7 +41,7 @@ export default function ProductDetail() {
 
   return (
     <div>
-      {/* {isLoading && <p>Loading...</p>} */}
+      {isLoading && <DotLottieReact src='/path/loading.json' loop autoplay />}
       {portfolios &&
         portfolios.map((portfolio, index) => {
           return (
