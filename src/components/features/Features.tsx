@@ -87,14 +87,14 @@ export default function Features() {
             <FeaturesItem
               key='features2'
               img='/img/img_main_features_01.jpg'
-              text={['데이터베이스에 등록한 포트폴리오 목록을 불러옵니다.', '관리자 권한이 있으면 포트폴리오 등록 버튼이 활성화됩니다.']}
+              text={['[목록] 데이터베이스에 등록한 포트폴리오 목록을 불러옵니다.', '관리자 권한이 있으면 포트폴리오 등록 버튼이 활성화됩니다.']}
             />
-            <FeaturesItem key='features3' img='/img/img_main_features_02.jpg' text={['포트폴리오를 데이터베이스에 등록합니다.', '관리자 권한이 없으면 해당 페이지에 접근할 수 없습니다.']} />
-            <FeaturesItem key='features4' img='/img/img_main_features_03.jpg' text={['포트폴리오의 상세 내용을 불러옵니다.', '관리자 권한이 있으면 수정, 삭제 버튼이 활성화됩니다.']} />
+            <FeaturesItem key='features3' img='/img/img_main_features_02.jpg' text={['[등록] 포트폴리오를 데이터베이스에 등록합니다.', '관리자 권한이 없으면 해당 페이지에 접근할 수 없습니다.']} />
+            <FeaturesItem key='features4' img='/img/img_main_features_03.jpg' text={['[상세] 포트폴리오의 상세 내용을 불러옵니다.', '관리자 권한이 있으면 수정, 삭제 버튼이 활성화됩니다.']} />
             <FeaturesItem
               key='features5'
               img='/img/img_main_features_04.jpg'
-              text={['데이터베이스에서 읽어온 값을 입력 폼에 불러옵니다.', '이미지를 수정하지 않으면 기존의 이미지가 그대로 유지됩니다.']}
+              text={['[수정] 데이터베이스에서 읽어온 값을 입력 폼에 불러옵니다.', '이미지를 수정하지 않으면 기존의 이미지가 그대로 유지됩니다.']}
             />
           </div>
         </div>
